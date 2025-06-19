@@ -4,6 +4,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const xmlContent = document.getElementById('xmlContent');
     const validationResults = document.getElementById('validationResults');
 
+    // URLs des schémas XSD SEPA
+    const SCHEMA_URLS = {
+        credit: 'https://raw.githubusercontent.com/ISO20022/ISO20022/master/Repository/Pain/pain.001.001.03.xsd',
+        debit:  'https://raw.githubusercontent.com/ISO20022/ISO20022/master/Repository/Pain/pain.008.001.02.xsd'
+    };
+
+    // Cache pour éviter de télécharger plusieurs fois le même XSD
+    const schemaCache = {};
+    async function loadSchema(url) {
+        if (schemaCache[url]) return schemaCache[url];
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error('Impossible de charger le schéma XSD');
+        const text = await resp.text();
+        schemaCache[url] = text;
+        return text;
+    }
+
     // Gestionnaire pour le chargement de fichier
     xmlFileInput.addEventListener('change', function(event) {
         const file = event.target.files[0];
@@ -178,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Gestionnaire de soumission du formulaire
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const xmlString = xmlContent.value;
         if (!xmlString.trim()) {
@@ -186,7 +203,25 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const result = validateXML(xmlString);
+        // Validation structure de base
+        const structuralResult = validateXML(xmlString);
+        let result = structuralResult;
+
+        // Validation XSD complémentaire si structure OK et xmllint chargé
+        if (structuralResult.valid && typeof xmllint !== 'undefined') {
+            try {
+                const schemaUrl = xmlString.includes('CstmrCdtTrfInitn') ? SCHEMA_URLS.credit : (xmlString.includes('CstmrDrctDbtInitn') ? SCHEMA_URLS.debit : null);
+                if (schemaUrl) {
+                    const xsdText = await loadSchema(schemaUrl);
+                    const xsdRes = xmllint.validateXML({ xml: xmlString, schema: xsdText });
+                    if (xsdRes.errors && xsdRes.errors.length) {
+                        result = { valid: false, message: 'Erreurs de validation XSD :\n' + xsdRes.errors.join('\n') };
+                    }
+                }
+            } catch(err) {
+                result = { valid:false, message:'Erreur de validation XSD : ' + err.message };
+            }
+        }
         
         if (result.valid) {
             validationResults.innerHTML = `

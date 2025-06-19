@@ -5,6 +5,7 @@ body {
 }
 
 :root {
+    --sepa-red: #dc3545;
     --sepa-blue: #0099ff;
     --sepa-green: #4caf50;
     --sepa-grey: #f4f4f4;
@@ -17,7 +18,7 @@ body {
     background: #fff;
     border-radius: 6px;
     border: 1px solid var(--sepa-grey-dark);
-    box-shadow: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .card-header {
@@ -120,7 +121,9 @@ h1, h3, h4, h5 {
     background: #388e3c;
 }
 
-input, textarea, select {
+input, textarea#xmlContent {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
     border: 1px solid var(--sepa-grey-dark);
     border-radius: 4px;
     background: #fff;
@@ -138,6 +141,7 @@ label {
 }
 
 #validationResults {
+    min-height: 2.5rem; /* compact */
     min-height: 100px;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -158,15 +162,23 @@ label {
 .validation-error {
     background-color: #f8d7da;
     border-left: 4px solid #dc3545;
-    padding: 1rem;
-    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
     border-radius: 0 0.5rem 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
 }
 
 .validation-success {
     background-color: #d1e7dd;
     border-left: 4px solid #198754;
-    padding: 1rem;
-    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
     border-radius: 0 0.5rem 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
 }
