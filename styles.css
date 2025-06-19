@@ -1,0 +1,144 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --sepa-blue: #0099ff;
+    --sepa-green: #4caf50;
+    --sepa-grey: #f4f4f4;
+    --sepa-grey-dark: #cccccc;
+    --sepa-table-header: #f8f8f8;
+    --sepa-table-border: #cccccc;
+}
+
+.container, .card {
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid var(--sepa-grey-dark);
+    box-shadow: none;
+}
+
+.card-header {
+    background: #fff;
+    border-bottom: 1px solid var(--sepa-grey-dark);
+}
+
+h1, h3, h4, h5 {
+    color: #222;
+    font-weight: 600;
+}
+
+.table-summary th {
+    background-color: var(--sepa-table-header);
+    color: #222;
+    font-weight: 700;
+    border: 1px solid var(--sepa-table-border);
+}
+
+.table-summary td {
+    background-color: #fff;
+    border: 1px solid var(--sepa-table-border);
+}
+
+.table-payments thead th {
+    background-color: var(--sepa-table-header);
+    color: #222;
+    border: 1px solid var(--sepa-table-border);
+}
+
+.table-payments tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.table-payments tbody tr:nth-child(even) {
+    background-color: var(--sepa-grey);
+}
+
+.table-payments td, .table-payments th {
+    border: 1px solid var(--sepa-table-border);
+}
+
+.details-section table th {
+    background-color: var(--sepa-table-header);
+    color: #222;
+    border: 1px solid var(--sepa-table-border);
+}
+
+.details-section table td {
+    background-color: #fff;
+    border: 1px solid var(--sepa-table-border);
+}
+
+.btn-primary {
+    background: var(--sepa-blue);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background: #007acc;
+}
+
+.btn-success {
+    background: var(--sepa-green);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-success:hover, .btn-success:focus {
+    background: #388e3c;
+}
+
+input, textarea, select {
+    border: 1px solid var(--sepa-grey-dark);
+    border-radius: 4px;
+    background: #fff;
+}
+
+label {
+    font-weight: 500;
+    color: #222;
+}
+
+
+.card {
+    border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#validationResults {
+    min-height: 100px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.valid {
+    color: #198754;
+}
+
+.invalid {
+    color: #dc3545;
+}
+
+.warning {
+    color: #ffc107;
+}
+
+.validation-error {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.validation-success {
+    background-color: #d1e7dd;
+    border-left: 4px solid #198754;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+}

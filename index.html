@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validateur de fichiers SEPA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Validateur de fichiers SEPA</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="sepaForm">
+                            <div class="mb-3">
+                                <label class="form-label">Sélectionner un fichier XML</label>
+                                <input class="form-control" type="file" id="xmlFile" accept=".xml">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Contenu XML</label>
+                                <textarea class="form-control" id="xmlContent" rows="15" placeholder="Coller le contenu XML ici ou sélectionner un fichier"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Valider le fichier</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Résultats de la validation</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="validationResults" class="validation-results"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Détails du fichier</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="fileDetails" class="file-details">
+                                <div id="headerDetails" class="mb-4">
+                                    <h5>En-tête</h5>
+                                    <div class="details-section"></div>
+                                </div>
+                                <div id="paymentDetails" class="mb-4">
+                                    <h5>Informations des paiements</h5>
+                                    <div class="details-section"></div>
+                                </div>
+                                <div id="transactionDetails" class="mb-4">
+                                    <h5>Détails des transactions</h5>
+                                    <div class="details-section"></div>
+                                </div>
+                                <div id="mandateDetails">
+                                    <h5>Informations des mandats</h5>
+                                    <div class="details-section"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="validator.js"></script>
+</body>
+</html>
