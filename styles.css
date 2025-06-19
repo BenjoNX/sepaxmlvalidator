@@ -1,6 +1,7 @@
 body {
     background-color: #f4f4f4;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
 }
 
 :root {
@@ -22,32 +23,59 @@ body {
 .card-header {
     background: #fff;
     border-bottom: 1px solid var(--sepa-grey-dark);
+    padding: 0.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.validation-result {
+    font-weight: normal;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.card-header {
+    min-height: 0.75rem;
+    padding: 0.125rem 1.25rem;
+    display: flex;
+    align-items: center;
 }
 
 h1, h3, h4, h5 {
     color: #222;
     font-weight: 600;
+    margin: 0;
 }
 
-.table-summary th {
+.table-summary th, .table-payments th, .table-transactions th {
     background-color: var(--sepa-table-header);
     color: #222;
-    font-weight: 700;
+    font-weight: 600;
     border: 1px solid var(--sepa-table-border);
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
 }
 
-.table-summary td {
+.table-summary td, .table-payments td, .table-transactions td {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+    vertical-align: middle;
+}
+
+.table-summary td, .table-payments td, .table-transactions td {
     background-color: #fff;
     border: 1px solid var(--sepa-table-border);
 }
 
-.table-payments thead th {
+.table-payments thead th, .table-transactions thead th {
     background-color: var(--sepa-table-header);
     color: #222;
     border: 1px solid var(--sepa-table-border);
 }
 
-.table-payments tbody tr:nth-child(odd) {
+.table-payments tbody tr:nth-child(odd), .table-transactions tbody tr:nth-child(odd) {
     background-color: #fff;
 }
 

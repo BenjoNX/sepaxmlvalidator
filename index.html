@@ -24,7 +24,7 @@
                             
                             <div class="mb-3">
                                 <label class="form-label">Contenu XML</label>
-                                <textarea class="form-control" id="xmlContent" rows="15" placeholder="Coller le contenu XML ici ou sélectionner un fichier"></textarea>
+                                <textarea class="form-control" id="xmlContent" rows="8" placeholder="Coller le contenu XML ici ou sélectionner un fichier"></textarea>
                             </div>
                             
                             <div class="mb-3">
@@ -37,11 +37,10 @@
                 <div class="mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="mb-0">Résultats de la validation</h4>
+                            <h4 class="mb-0 d-inline">Résultats de la validation</h4>
+                            <span id="validationResults" class="validation-result"></span>
                         </div>
-                        <div class="card-body">
-                            <div id="validationResults" class="validation-results"></div>
-                        </div>
+                        <div class="card-body p-0"></div>
                     </div>
                 </div>
                 
@@ -52,19 +51,19 @@
                         </div>
                         <div class="card-body">
                             <div id="fileDetails" class="file-details">
-                                <div id="headerDetails" class="mb-4">
+                                <div id="headerDetails" class="mb-3">
                                     <h5>En-tête</h5>
                                     <div class="details-section"></div>
                                 </div>
-                                <div id="paymentDetails" class="mb-4">
+                                <div id="paymentDetails" class="mb-3">
                                     <h5>Informations des paiements</h5>
                                     <div class="details-section"></div>
                                 </div>
-                                <div id="transactionDetails" class="mb-4">
+                                <div id="transactionDetails" class="mb-3">
                                     <h5>Détails des transactions</h5>
                                     <div class="details-section"></div>
                                 </div>
-                                <div id="mandateDetails">
+                                <div id="mandateDetails" class="mb-2">
                                     <h5>Informations des mandats</h5>
                                     <div class="details-section"></div>
                                 </div>
